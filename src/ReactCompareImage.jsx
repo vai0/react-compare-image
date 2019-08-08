@@ -204,6 +204,14 @@ function ReactCompareImage(props) {
     };
   }, [leftImgLoaded, rightImgLoaded, canvasWidth]);
 
+  useEffect(() => {
+    if (sliderPositionPercentage != sliderPosition) {
+      handleSliding({
+        pageX: Math.floor(window.innerWidth * sliderPositionPercentage),
+      });
+    }
+  }, [sliderPositionPercentage]);
+
   const styles = {
     container: {
       boxSizing: 'border-box',
